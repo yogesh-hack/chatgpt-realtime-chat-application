@@ -59,7 +59,7 @@ cd ../client && npm start
 ## Contributors
 
 - [Yogesh Baghel](https://github.com/yogesh-hack4)
-- [Vikas Kumar Singh](https://github.com/vikaskumarsingh98)
+- [Vikas Kumar Singh](https://github.com/vikaskumarsingh20)
 - [Shiv Kumar Singh](https://github.com/shivkumarsingh98)
 - [Rishabh Pal](https://github.com/rishabhpalmc)
 
