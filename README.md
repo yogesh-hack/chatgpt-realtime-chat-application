@@ -1,5 +1,7 @@
 # ChatGPT Realtime Chat Application
 
+![Screenshot 2024-04-04 131142](https://github.com/yogesh-hack/chatgpt-realtime-chat-application/assets/83384315/e9096071-b646-46b3-bf0e-409ce468c250)
+
 Welcome to the ChatGPT Realtime Chat Application repository! This project was developed by a team of four students: Yogesh Baghel, Vikas Kumar Singh, Shiv Kumar Singh, and Rishabh Pal.
 
 ## About
@@ -61,10 +63,5 @@ cd ../client && npm start
 - [Shiv Kumar Singh](https://github.com/shivkumarsingh98)
 - [Rishabh Pal](https://github.com/rishabhpalmc)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-Feel free to customize the content, URLs, and instructions according to your project's specific details. You can also include additional sections or information as needed.
+> Thank you...
 
