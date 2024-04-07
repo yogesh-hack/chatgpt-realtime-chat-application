@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import axios from "axios";
 import dotenv from "dotenv";
 import { openai } from "../index.js";
@@ -13,20 +13,22 @@ router.post("/text", async (req, res) => {
 
     const params = {
       messages: [{ role: 'user', content: text }],
-      model: 'gpt-3.5-turbo',
+      model: 'gemini-pro',
       prompt: text,
-      temperature: 0.5,
-      max_tokens: 2048,
-      top_p: 1,
-      frequency_penalty: 0.5,
-      presence_penalty: 0,
     };
-    const response = await openai.chat.completions.create(params);
-    res.json(response.data);
+    const model = openai.getGenerativeModel({ model: params.model});
+
+    const prompt = params.prompt
+  
+    const result = await model.generateContent(prompt);
+    // console.log(result)
+    const responseText = await result.response.text();
+    // res.json({text : responseText});
+    // console.log(response.text());
 
     await axios.post(
       `https://api.chatengine.io/chats/${activeChatId}/messages/`,
-      { text: response.data.choices[0].text },
+      { text: responseText},
       {
         headers: {
           "Project-ID": process.env.PROJECT_ID,
@@ -35,8 +37,10 @@ router.post("/text", async (req, res) => {
         },
       }
     );
-
-    res.status(200).json({ text: response.data.choices[0].text });
+    // Send generated response to client
+    res.json({ text: responseText });
+    // res.status(200).json({ text: "Error 200.." });
+    // res.status(404).json({ text: "Error 404.." });
   } catch (error) {
     console.error("error", error);
     res.status(500).json({ error: error.message });

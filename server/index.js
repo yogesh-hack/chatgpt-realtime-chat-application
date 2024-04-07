@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
 import OpenAI from "openai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import openAiRoutes from "./routes/openai.js";
 import authRoutes from "./routes/auth.js";
 
@@ -20,9 +21,8 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 /* OPEN AI CONFIGURATION */
-export const openai = new OpenAI({
-  apiKey: process.env['OPEN_API_KEY'],
-});
+export const openai = new GoogleGenerativeAI (process.env.OPEN_API_KEY);
+
 
 /* ROUTES */
 app.use("/openai", openAiRoutes);
