@@ -30,6 +30,11 @@ app.use("/auth", authRoutes);
 
 /* SERVER SETUP */
 const PORT = process.env.PORT || 9000;
+
+app.get('/', (req, res) => {
+  res.send('This is Chat-GPT Chat App API..');
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
 });
